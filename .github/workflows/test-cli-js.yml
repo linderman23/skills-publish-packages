@@ -13,6 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' 
+
+      - name: Install dependencies
+        run: |
+          cd ./.github/actions/my-cli-action
+          npm install
+
       - name: Install MyCLI
         uses: ./.github/actions/my-cli-action
         with:
